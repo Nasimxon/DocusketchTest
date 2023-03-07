@@ -1,0 +1,43 @@
+apply plugin: 'com.android.library'
+apply from: '../commons.gradle'
+
+android {
+    defaultConfig {
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+
+//        Properties properties = new Properties()
+//        if (project.rootProject.file('local.properties').canRead())
+//            properties.load(new FileInputStream(project.rootProject.file('local.properties')))
+//        else throw new GradleException("Could not read local.properties!")
+//
+//        buildConfigField("String", "API_KEY", properties["API_KEY"])
+    }
+
+}
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation project(Modules.domain)
+    implementation project(Modules.common)
+
+    implementation Libraries.retrofit
+    api Libraries.retrofitMoshiConverter
+    api Libraries.httpLoggingInterceptor
+    implementation Libraries.okhttp
+
+    implementation Libraries.dagger2
+    kapt Libraries.daggerCompiler
+
+    implementation AndroidLibraries.lifecycleViewModel
+    implementation AndroidLibraries.lifecycleLivedata
+    kapt AndroidLibraries.lifecycleCompile
+
+    implementation Libraries.moshiKotlin
+    kapt Libraries.moshiKotlinCodegen
+
+    implementation AndroidLibraries.room
+    implementation AndroidLibraries.roomKtx
+    kapt AndroidLibraries.roomCompiler
+
+}

@@ -1,0 +1,31 @@
+apply plugin: 'com.android.library'
+apply from: '../commons.gradle'
+apply plugin: "androidx.navigation.safeargs.kotlin"
+
+
+dependencies {
+    implementation project(Modules.core)
+    implementation project(Modules.common)
+    implementation project(Modules.domain)
+    implementation project(Modules.presentation)
+    implementation project(Modules.navigation)
+    implementation project(Modules.data)
+
+    implementation AndroidLibraries.appCompat
+    implementation AndroidLibraries.fragment
+    implementation AndroidLibraries.fragmentKtx
+    implementation AndroidLibraries.constraintLayout
+    implementation AndroidLibraries.materialDesign
+    implementation AndroidLibraries.recyclerView
+    implementation AndroidLibraries.cardView
+    implementation AndroidLibraries.navigation
+    implementation AndroidLibraries.navigationFrag
+
+    implementation Libraries.glide
+    kapt Libraries.glideCompiler
+    implementation Libraries.svgDecoder
+
+    implementation Libraries.dagger2
+    kapt Libraries.daggerCompiler
+
+}

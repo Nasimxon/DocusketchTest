@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/users_fragment">
+
+    <fragment
+        android:id="@+id/users_fragment"
+        android:name="com.docusketch.users.ui.UsersFragment"
+        android:label="Users">
+
+        <action
+            android:id="@+id/action_users_fragment_to_user_details_fragment"
+            app:destination="@id/user_details_fragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/user_details_fragment"
+        android:name="com.docusketch.details.ui.UserDetailsFragment"
+        android:label="UserDetails">
+
+        <argument
+            android:name="username"
+            app:argType="string" />
+
+    </fragment>
+
+</navigation>

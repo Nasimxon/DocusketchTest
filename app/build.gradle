@@ -1,0 +1,28 @@
+apply plugin: 'com.android.application'
+apply from: '../commons.gradle'
+
+android {
+    namespace 'com.decusketch.test'
+    defaultConfig {
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+
+        applicationId ApplicationId.id
+    }
+
+}
+
+dependencies {
+    implementation project(Modules.core)
+    implementation project(Modules.common)
+    implementation project(Modules.navigation)
+    implementation project(Modules.users)
+    implementation project(Modules.details)
+
+    implementation AndroidLibraries.appCompat
+    implementation AndroidLibraries.constraintLayout
+    implementation AndroidLibraries.materialDesign
+    implementation AndroidLibraries.recyclerView
+    implementation AndroidLibraries.navigation
+    implementation AndroidLibraries.navigationFrag
+}
